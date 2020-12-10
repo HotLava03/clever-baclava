@@ -1,11 +1,12 @@
 import { Client } from 'eris'
 import next from 'next'
+import { CommandHandler } from './commands/CommandHandler'
 import { EventListener } from './EventListener'
 
 export class BaclavaServer {
   constructor(config) {
     this.config = config
-    this.commandHandler = new 
+    this.commandHandler = new CommandHandler(this)
   }
 
   async init(dev) {
@@ -13,7 +14,7 @@ export class BaclavaServer {
     const client = new Client(process.env.TOKEN)
 
     // Instanciate EventListener.
-    const listener = new EventListener()
+    const listener = new EventListener(this)
 
     // Listen to messages.
     client.on('messageCreate', listener.onMessageReceived)

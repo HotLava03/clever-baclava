@@ -15,9 +15,9 @@ export class EventListener {
     }
 
     // Nope, so let's see if it's a command.
-    if (this._isCommandCall(message)) {
-      
-    }
+    /* if (this._isCommandCall(message)) {
+
+    } */
   }
 
   /**
